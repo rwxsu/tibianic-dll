@@ -1,0 +1,157 @@
+# Project: Tibia
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = 
+OBJ  = config.o functions.o main.o timer.o tools.o gui/dialogs/newswindow.o gui/dialogs/optionswindow.o gui/dialogs/outfitdialog.o gui/dialogs/questlinewindow.o gui/dialogs/questlogwindow.o gui/dialogs/testdialog.o gui/dialogs/tradewindow.o gui/dialogs/updatewindow.o gui/elements/buttons.o gui/elements/checkbox.o gui/elements/inputbox.o gui/elements/label.o gui/elements/listbox.o gui/elements/memobox.o gui/elements/objectslot.o gui/elements/progressbar.o gui/elements/scroll.o gui/elements/skin.o crypt/base.o crypt/crc.o crypt/rsa.o crypt/xtea.o cam/cam.o cam/player.o cam/recorder.o locks/lock.o network/httpget.o network/networkmessage.o network/tcpconnection.o pinger/pinger.o threads/thread.o gui/gui.o gui/guielement.o gui/guiparent.o gui/guiwindow.o gui/painter.o gui/uitibia.o $(RES)
+LINKOBJ  = config.o functions.o main.o timer.o tools.o gui/dialogs/newswindow.o gui/dialogs/optionswindow.o gui/dialogs/outfitdialog.o gui/dialogs/questlinewindow.o gui/dialogs/questlogwindow.o gui/dialogs/testdialog.o gui/dialogs/tradewindow.o gui/dialogs/updatewindow.o gui/elements/buttons.o gui/elements/checkbox.o gui/elements/inputbox.o gui/elements/label.o gui/elements/listbox.o gui/elements/memobox.o gui/elements/objectslot.o gui/elements/progressbar.o gui/elements/scroll.o gui/elements/skin.o crypt/base.o crypt/crc.o crypt/rsa.o crypt/xtea.o cam/cam.o cam/player.o cam/recorder.o locks/lock.o network/httpget.o network/networkmessage.o network/tcpconnection.o pinger/pinger.o threads/thread.o gui/gui.o gui/guielement.o gui/guiparent.o gui/guiwindow.o gui/painter.o gui/uitibia.o $(RES)
+LIBS =  -L"C:/Tibia/devcpp/lib" --no-export-all-symbols --add-stdcall-alias -lws2_32 -lgmp -lwinmm -lwininet -lAdvapi32  
+INCS =  -I"C:/Tibia/devcpp/include"  -I"C:/Tibia/tibianic-dll/"  -I"C:/Tibia/tibianic-dll/cam"  -I"C:/Tibia/tibianic-dll/crypt"  -I"C:/Tibia/tibianic-dll/gui"  -I"C:/Tibia/tibianic-dll/include"  -I"C:/Tibia/tibianic-dll/locks"  -I"C:/Tibia/tibianic-dll/network"  -I"C:/Tibia/tibianic-dll/pinger"  -I"C:/Tibia/tibianic-dll/threads"  -I"C:/Tibia/tibianic-dll/gui/elements"  -I"C:/Tibia/tibianic-dll/gui/dialogs" 
+CXXINCS =  -I"C:/Tibia/devcpp/include"  -I"C:/Tibia/tibianic-dll/"  -I"C:/Tibia/tibianic-dll/cam"  -I"C:/Tibia/tibianic-dll/crypt"  -I"C:/Tibia/tibianic-dll/gui"  -I"C:/Tibia/tibianic-dll/include"  -I"C:/Tibia/tibianic-dll/locks"  -I"C:/Tibia/tibianic-dll/network"  -I"C:/Tibia/tibianic-dll/pinger"  -I"C:/Tibia/tibianic-dll/threads"  -I"C:/Tibia/tibianic-dll/gui/elements"  -I"C:/Tibia/tibianic-dll/gui/dialogs" 
+BIN  = Tibia.dll
+CXXFLAGS = $(CXXINCS) -DBUILDING_DLL=1  
+CFLAGS = $(INCS) -DBUILDING_DLL=1  
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before Tibia.dll all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+DLLWRAP=dllwrap.exe
+DEFFILE=libTibia.def
+STATICLIB=libTibia.a
+
+$(BIN): $(LINKOBJ)
+	$(DLLWRAP) --output-def $(DEFFILE) --driver-name c++ --implib $(STATICLIB) $(LINKOBJ) $(LIBS) -o $(BIN)
+
+config.o: config.cpp
+	$(CPP) -c config.cpp -o config.o $(CXXFLAGS)
+
+functions.o: functions.cpp
+	$(CPP) -c functions.cpp -o functions.o $(CXXFLAGS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+timer.o: timer.cpp
+	$(CPP) -c timer.cpp -o timer.o $(CXXFLAGS)
+
+tools.o: tools.cpp
+	$(CPP) -c tools.cpp -o tools.o $(CXXFLAGS)
+
+gui/dialogs/newswindow.o: gui/dialogs/newswindow.cpp
+	$(CPP) -c gui/dialogs/newswindow.cpp -o gui/dialogs/newswindow.o $(CXXFLAGS)
+
+gui/dialogs/optionswindow.o: gui/dialogs/optionswindow.cpp
+	$(CPP) -c gui/dialogs/optionswindow.cpp -o gui/dialogs/optionswindow.o $(CXXFLAGS)
+
+gui/dialogs/outfitdialog.o: gui/dialogs/outfitdialog.cpp
+	$(CPP) -c gui/dialogs/outfitdialog.cpp -o gui/dialogs/outfitdialog.o $(CXXFLAGS)
+
+gui/dialogs/questlinewindow.o: gui/dialogs/questlinewindow.cpp
+	$(CPP) -c gui/dialogs/questlinewindow.cpp -o gui/dialogs/questlinewindow.o $(CXXFLAGS)
+
+gui/dialogs/questlogwindow.o: gui/dialogs/questlogwindow.cpp
+	$(CPP) -c gui/dialogs/questlogwindow.cpp -o gui/dialogs/questlogwindow.o $(CXXFLAGS)
+
+gui/dialogs/testdialog.o: gui/dialogs/testdialog.cpp
+	$(CPP) -c gui/dialogs/testdialog.cpp -o gui/dialogs/testdialog.o $(CXXFLAGS)
+
+gui/dialogs/tradewindow.o: gui/dialogs/tradewindow.cpp
+	$(CPP) -c gui/dialogs/tradewindow.cpp -o gui/dialogs/tradewindow.o $(CXXFLAGS)
+
+gui/dialogs/updatewindow.o: gui/dialogs/updatewindow.cpp
+	$(CPP) -c gui/dialogs/updatewindow.cpp -o gui/dialogs/updatewindow.o $(CXXFLAGS)
+
+gui/elements/buttons.o: gui/elements/buttons.cpp
+	$(CPP) -c gui/elements/buttons.cpp -o gui/elements/buttons.o $(CXXFLAGS)
+
+gui/elements/checkbox.o: gui/elements/checkbox.cpp
+	$(CPP) -c gui/elements/checkbox.cpp -o gui/elements/checkbox.o $(CXXFLAGS)
+
+gui/elements/inputbox.o: gui/elements/inputbox.cpp
+	$(CPP) -c gui/elements/inputbox.cpp -o gui/elements/inputbox.o $(CXXFLAGS)
+
+gui/elements/label.o: gui/elements/label.cpp
+	$(CPP) -c gui/elements/label.cpp -o gui/elements/label.o $(CXXFLAGS)
+
+gui/elements/listbox.o: gui/elements/listbox.cpp
+	$(CPP) -c gui/elements/listbox.cpp -o gui/elements/listbox.o $(CXXFLAGS)
+
+gui/elements/memobox.o: gui/elements/memobox.cpp
+	$(CPP) -c gui/elements/memobox.cpp -o gui/elements/memobox.o $(CXXFLAGS)
+
+gui/elements/objectslot.o: gui/elements/objectslot.cpp
+	$(CPP) -c gui/elements/objectslot.cpp -o gui/elements/objectslot.o $(CXXFLAGS)
+
+gui/elements/progressbar.o: gui/elements/progressbar.cpp
+	$(CPP) -c gui/elements/progressbar.cpp -o gui/elements/progressbar.o $(CXXFLAGS)
+
+gui/elements/scroll.o: gui/elements/scroll.cpp
+	$(CPP) -c gui/elements/scroll.cpp -o gui/elements/scroll.o $(CXXFLAGS)
+
+gui/elements/skin.o: gui/elements/skin.cpp
+	$(CPP) -c gui/elements/skin.cpp -o gui/elements/skin.o $(CXXFLAGS)
+
+crypt/base.o: crypt/base.cpp
+	$(CPP) -c crypt/base.cpp -o crypt/base.o $(CXXFLAGS)
+
+crypt/crc.o: crypt/crc.cpp
+	$(CPP) -c crypt/crc.cpp -o crypt/crc.o $(CXXFLAGS)
+
+crypt/rsa.o: crypt/rsa.cpp
+	$(CPP) -c crypt/rsa.cpp -o crypt/rsa.o $(CXXFLAGS)
+
+crypt/xtea.o: crypt/xtea.cpp
+	$(CPP) -c crypt/xtea.cpp -o crypt/xtea.o $(CXXFLAGS)
+
+cam/cam.o: cam/cam.cpp
+	$(CPP) -c cam/cam.cpp -o cam/cam.o $(CXXFLAGS)
+
+cam/player.o: cam/player.cpp
+	$(CPP) -c cam/player.cpp -o cam/player.o $(CXXFLAGS)
+
+cam/recorder.o: cam/recorder.cpp
+	$(CPP) -c cam/recorder.cpp -o cam/recorder.o $(CXXFLAGS)
+
+locks/lock.o: locks/lock.cpp
+	$(CPP) -c locks/lock.cpp -o locks/lock.o $(CXXFLAGS)
+
+network/httpget.o: network/httpget.cpp
+	$(CPP) -c network/httpget.cpp -o network/httpget.o $(CXXFLAGS)
+
+network/networkmessage.o: network/networkmessage.cpp
+	$(CPP) -c network/networkmessage.cpp -o network/networkmessage.o $(CXXFLAGS)
+
+network/tcpconnection.o: network/tcpconnection.cpp
+	$(CPP) -c network/tcpconnection.cpp -o network/tcpconnection.o $(CXXFLAGS)
+
+pinger/pinger.o: pinger/pinger.cpp
+	$(CPP) -c pinger/pinger.cpp -o pinger/pinger.o $(CXXFLAGS)
+
+threads/thread.o: threads/thread.cpp
+	$(CPP) -c threads/thread.cpp -o threads/thread.o $(CXXFLAGS)
+
+gui/gui.o: gui/gui.cpp
+	$(CPP) -c gui/gui.cpp -o gui/gui.o $(CXXFLAGS)
+
+gui/guielement.o: gui/guielement.cpp
+	$(CPP) -c gui/guielement.cpp -o gui/guielement.o $(CXXFLAGS)
+
+gui/guiparent.o: gui/guiparent.cpp
+	$(CPP) -c gui/guiparent.cpp -o gui/guiparent.o $(CXXFLAGS)
+
+gui/guiwindow.o: gui/guiwindow.cpp
+	$(CPP) -c gui/guiwindow.cpp -o gui/guiwindow.o $(CXXFLAGS)
+
+gui/painter.o: gui/painter.cpp
+	$(CPP) -c gui/painter.cpp -o gui/painter.o $(CXXFLAGS)
+
+gui/uitibia.o: gui/uitibia.cpp
+	$(CPP) -c gui/uitibia.cpp -o gui/uitibia.o $(CXXFLAGS)

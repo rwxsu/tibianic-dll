@@ -1,0 +1,6 @@
+*.o
+*.map
+*.cam
+
+Tibia.cfg
+Tibia.layout

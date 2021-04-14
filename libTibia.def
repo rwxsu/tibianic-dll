@@ -1,0 +1,2 @@
+; dlltool --base-file C:\Users\sornz\AppData\Local\Temp/cca14444.base --output-exp Tibia.exp --dllname Tibia.dll --output-def libTibia.def --no-export-all-symbols --add-stdcall-alias --exclude-symbol=DllMainCRTStartup@12 --def C:\Users\sornz\AppData\Local\Temp/cca14444.def --output-lib libTibia.a
+EXPORTS
